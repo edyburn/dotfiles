@@ -1,4 +1,2 @@
-# ignore things that aren't explicitly commited
-/*
-# but allow the .gitignore
-!.gitignore
+.vim/.netrwhist
+
