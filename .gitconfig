@@ -1,0 +1,7 @@
+[core]
+    editor = vim
+[color]
+    ui = true
+[user]
+    name = $GITUSERNAME
+    email = $GITEMAIL
