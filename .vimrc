@@ -36,6 +36,9 @@ set wildmode=list:full  " show a list when pressing tab and complete
 set wildignore=.DS_Store,*.pyc	" ignore when completing filenames
 set title			" set the terminal's title
 
+set foldmethod=indent   " enable code folding based on indent
+set foldlevel=99
+
 set nobackup		" disable vim's backup
 set noswapfile		" disable vim's swapfile
 
@@ -72,4 +75,19 @@ nmap <silent> <leader>ln :set invnumber<CR>
 
 " remap ';' to ':' to speed up typing commands
 nnoremap ; :
+
+" Add the virtualenv's site-packages to vim path
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" toggle HexManager plugin with leader-hm
+nmap <silent> <leader>hm <Plug>HexManager<CR>
 
