@@ -64,7 +64,7 @@ if &t_Co > 2 || has("gui_running")
 	syntax on
 endif
 
-set pastetoggle=<F2>	" toggle paste mode with F2
+set pastetoggle=<C-P>	" toggle paste mode with F2
 
 set nonumber	" start with line numbers off
 " set a shortcut to toggle line numbers
