@@ -82,6 +82,11 @@ nnoremap ; :
 " toggle HexManager plugin with leader-hm
 nmap <silent> <leader>hm <Plug>HexManager<CR>
 
+" since 'python' is python3 on Arch Linux, override executable name
+if system('python -c "import sys; print(sys.version_info.major)"') == 3
+    let g:syntastic_python_python_exe="python2"
+endif
+
 if has("python")
     " Add the virtualenv's site-packages to vim path
     runtime python_virtualenv_fix.vim
