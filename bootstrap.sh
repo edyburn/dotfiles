@@ -29,6 +29,9 @@ function prompt_and_replace {
 
 }
 
+echo "Downloading git submodules"
+git submodule update --init
+
 echo "Setting up git"
 # check if file exists
 if [[ -e ~/.gitconfig ]]; then
