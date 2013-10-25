@@ -52,6 +52,9 @@ if has('autocmd')
 	autocmd filetype html,xml setlocal list
 	autocmd filetype html,xml setlocal listchars-=tab:>.
 	autocmd filetype rst setlocal list
+	autocmd filetype javascript setlocal tabstop=2
+	autocmd filetype javascript setlocal softtabstop=2
+	autocmd filetype javascript setlocal shiftwidth=2
 endif
 
 " disable background color erase
