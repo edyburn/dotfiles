@@ -1,11 +1,12 @@
 " Keith Edyburn's .vimrc
 
+" TODO: bind "spell! spell?" to toggle spellcheck
 set nocompatible	" ensure vi compatibility is disabled
 
 " activate pathogen to load plugins from ~/.vim/bundle
 filetype off	" force reloading *after* pathogen loaded
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 filetype plugin indent on	" enable detection, plugins and indenting in one step
 
 " Quickly edit/reload the vimrc file
@@ -52,10 +53,24 @@ if has('autocmd')
 	autocmd filetype html,xml setlocal list
 	autocmd filetype html,xml setlocal listchars-=tab:>.
 	autocmd filetype rst setlocal list
-	autocmd filetype javascript setlocal tabstop=2
-	autocmd filetype javascript setlocal softtabstop=2
-	autocmd filetype javascript setlocal shiftwidth=2
+	autocmd filetype javascript,css,less,jade,typescript,elm setlocal list
+	autocmd filetype javascript,html,css,less,jade,yaml,typescript,htmldjango setlocal tabstop=2
+	autocmd filetype javascript,html,css,less,jade,yaml,typescript,htmldjango setlocal softtabstop=2
+	autocmd filetype javascript,html,css,less,jade,yaml,typescript,htmldjango setlocal shiftwidth=2
 endif
+
+" TypeScript integration stuff
+" TODO: Generalize this somehow?
+" let g:tsuquyomi_use_dev_node_module = 2
+" let g:tsuquyomi_tsserver_path = '/home/keith/.../node_modules/.bin/tsserver'
+" autocmd FileType typescript nmap <buffer> <Leader>t :
+"         \ <C-u>echo tsuquyomi#hint()<CR>
+" autocmd FileType typescript let g:SuperTabDefaultCompletionType = "context"
+autocmd FileType typescript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+autocmd FileType typescript setlocal completeopt=menu,preview,longest
+" autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
+" autocmd FileType typescript nmap <buffer> <Leader>f <Plug>(TsuquyomiQuickFix)
+" autocmd FileType typescript nmap <buffer> <Leader>i <Plug>(TsuquyomiImport)
 
 " disable background color erase
 set t_ut=
