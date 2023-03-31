@@ -1,7 +1,47 @@
-[core]
-    editor = vim
+[user]
+    name = Keith Edyburn
+    email = keith@edyburn.info
+
 [color]
     ui = true
-[user]
-    name = $GITUSERNAME
-    email = $GITEMAIL
+[core]
+    editor = vim
+[diff]
+    tool = vimdiff
+[diff "json"]
+    # Run json through jq to pretty-print befor diffing
+    textconv = jq .
+[difftool]
+    # Don't prompt before opening the difftool
+    prompt = false
+[fetch]
+    # Automatically prune branches when fetching
+    prune = true
+[init]
+    defaultBranch = main
+[log]
+    # Show ref names for commits in terminals
+    decorate = auto
+[pull]
+    # Automatically rebase when pulling
+    rebase = true
+[push]
+    # Automatically set upstream when pushing if not already set
+    autoSetupRemote = true
+    # Push the current branch with the same name on the remote
+    default = simple
+    # Automatically push (reachable) local tags
+    followTags = true
+[rerere]
+    # Record resolved conflicts for auto-resolving if re-encountered
+    enabled = true
+[stash]
+    # Show the diff for stashes
+    showPatch = true
+[tag]
+    # Sort tags by commit date (descending)
+    sort = -committerdate
+
+[include]
+    # Anything machine-specific should go in .gitconfig.local
+    path = ~/.gitconfig.local
